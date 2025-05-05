@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuvix - Professional Raqamli Agentlik | Veb-sayt, Mobil Ilovalar va UI/UX Dizayn</title>
+    <meta name="description"
+        content="Nuvix - O'zbekistondagi yetakchi raqamli agentlik. Veb-sayt yaratish, mobil ilovalar ishlab chiqish, UI/UX dizayn va raqamli marketing xizmatlari. Professional yechimlar bilan biznesingizni rivojlantiring.">
+    <meta name="keywords"
+        content="raqamli agentlik, veb-sayt yaratish, mobil ilovalar, UI/UX dizayn, raqamli marketing, O'zbekiston">
+    <meta name="author" content="Nuvix Digital Agency">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title"
+        content="Nuvix - Professional Raqamli Agentlik | Veb-sayt, Mobil Ilovalar va UI/UX Dizayn">
+    <meta property="og:description"
+        content="O'zbekistondagi yetakchi raqamli agentlik. Professional veb-sayt, mobil ilovalar va UI/UX dizayn xizmatlari.">
+    <meta property="og:image" content="https://nuvix.uz/og-image.jpg">
+    <meta property="og:url" content="https://nuvix.uz">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://nuvix.uz">
+    <link rel="alternate" hreflang="uz" href="https://nuvix.uz/uz">
+    <link rel="alternate" hreflang="ru" href="https://nuvix.uz/ru">
+    <link rel="alternate" hreflang="en" href="https://nuvix.uz/en">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#8e9ba8', secondary: '#0d1b2a' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+
+        .lazy-load.loaded {
+            opacity: 1;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0d1b2a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(142, 155, 168, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            25% {
+                transform: translateY(-30px) translateX(15px);
+            }
+
+            50% {
+                transform: translateY(-15px) translateX(-15px);
+            }
+
+            75% {
+                transform: translateY(30px) translateX(10px);
+            }
+        }
+
+        .logo-animation .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px) scale(0.8);
+            animation: logoReveal 0.5s forwards;
+        }
+
+        .glowing-text {
+            text-shadow: 0 0 10px rgba(142, 155, 168, 0.5);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes logoReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(142, 155, 168, 0.5);
+            }
+
+            to {
+                text-shadow: 0 0 20px rgba(142, 155, 168, 0.8),
+                    0 0 30px rgba(142, 155, 168, 0.6),
+                    0 0 40px rgba(142, 155, 168, 0.4);
+            }
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, rgba(142, 155, 168, 0.8), transparent);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 80%;
+        }
+
+        .mobile-nav-link {
+            transform: translateX(-10px);
+            opacity: 0;
+            animation: slideIn 0.3s forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .neon-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .neon-button:hover {
+            box-shadow: 0 0 15px rgba(142, 155, 168, 0.8);
+        }
+
+        .neon-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(142, 155, 168, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .neon-button:hover:before {
+            left: 100%;
+        }
+
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: float-card 6s infinite ease-in-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(142, 155, 168, 0.3);
+        }
+
+        @keyframes float-card {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .portfolio-item {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.5s ease;
+        }
+
+        .portfolio-item.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .typing-animation {
+            overflow: hidden;
+            border-right: 2px solid #8e9ba8;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #8e9ba8
+            }
+        }
+
+        .custom-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .custom-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .switch-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(13, 27, 42, 0.5);
+            transition: .4s;
+            border-radius: 30px;
+            border: 1px solid rgba(142, 155, 168, 0.3);
+        }
+
+        .switch-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 3px;
+            background-color: #8e9ba8;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.switch-slider {
+            background-color: rgba(142, 155, 168, 0.2);
+        }
+
+        input:checked+.switch-slider:before {
+            transform: translateX(30px);
+            background-color: #fff;
+        }
+
+        .custom-checkbox {
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 24px;
+            width: 24px;
+            background-color: rgba(13, 27, 42, 0.5);
+            border: 1px solid rgba(142, 155, 168, 0.5);
+            border-radius: 4px;
+        }
+
+        .custom-checkbox:hover input~.checkmark {
+            background-color: rgba(142, 155, 168, 0.1);
+        }
+
+        .custom-checkbox input:checked~.checkmark {
+            background-color: rgba(142, 155, 168, 0.8);
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .custom-checkbox input:checked~.checkmark:after {
+            display: block;
+        }
+
+        .custom-checkbox .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glassmorphism {
+            background: rgba(13, 27, 42, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(142, 155, 168, 0.2);
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: rgba(142, 155, 168, 0.2);
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #8e9ba8;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            box-shadow: 0 0 10px rgba(142, 155, 168, 0.8);
+            background: #fff;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #8e9ba8;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="range"]::-moz-range-thumb:hover {
+            box-shadow: 0 0 10px rgba(142, 155, 168, 0.8);
+            background: #fff;
+        }
+
+        .custom-radio {
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .custom-radio input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .radio-mark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 24px;
+            width: 24px;
+            background-color: rgba(13, 27, 42, 0.5);
+            border: 1px solid rgba(142, 155, 168, 0.5);
+            border-radius: 50%;
+        }
+
+        .custom-radio:hover input~.radio-mark {
+            background-color: rgba(142, 155, 168, 0.1);
+        }
+
+        .custom-radio input:checked~.radio-mark {
+            background-color: rgba(13, 27, 42, 0.8);
+            border: 1px solid rgba(142, 155, 168, 0.8);
+        }
+
+        .radio-mark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .custom-radio input:checked~.radio-mark:after {
+            display: block;
+        }
+
+        .custom-radio .radio-mark:after {
+            top: 7px;
+            left: 7px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #8e9ba8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="particles" id="particles"></div>
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="header">
+        <nav class="bg-secondary/5 backdrop-blur-xl border-b border-primary/10  px-6 md:px-12">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="logo-animation relative">
+                    <a href="#" class="text-2xl lg:text-3xl font-['Open Sans'] font-bold text-white flex items-center">
+                        <span class="letter glowing-text" style="animation-delay: 0.1s;"><img class="w-12 lg:w-16 "
+                                src="./img/logo.png" alt="nuvix logosi"></span>
+                        <span class="letter glowing-text" style="animation-delay: 0.2s;">u</span>
+                        <span class="letter glowing-text" style="animation-delay: 0.3s;">v</span>
+                        <span class="letter glowing-text" style="animation-delay: 0.4s;">i</span>
+                        <span class="letter glowing-text" style="animation-delay: 0.5s;">x</span>
+                    </a>
+                    <div
+                        class="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50">
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-2">
+                    <a href="#home"
+                        class="nav-link px-4 py-2 rounded-button text-primary hover:text-white relative overflow-hidden group">
+                        <span class="relative z-10">Bosh sahifa</span>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/40 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        </div>
+                    </a>
+                    <a href="#about"
+                        class="nav-link px-4 py-2 rounded-button text-primary hover:text-white relative overflow-hidden group">
+                        <span class="relative z-10">Biz haqimizda</span>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/40 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        </div>
+                    </a>
+                    <a href="#services"
+                        class="nav-link px-4 py-2 rounded-button text-primary hover:text-white relative overflow-hidden group">
+                        <span class="relative z-10">Xizmatlar</span>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/40 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        </div>
+                    </a>
+                    <a href="#portfolio"
+                        class="nav-link px-4 py-2 rounded-button text-primary hover:text-white relative overflow-hidden group">
+                        <span class="relative z-10">Portfolio</span>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/40 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        </div>
+                    </a>
+                    <a href="#contact"
+                        class="nav-link px-4 py-2 rounded-button text-primary hover:text-white relative overflow-hidden group">
+                        <span class="relative z-10">Aloqa</span>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/40 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        </div>
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none relative group">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-all duration-300">
+                            <i class="ri-menu-line ri-lg"></i>
+                        </div>
+                        <div
+                            class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-50 transition-all duration-300">
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden fixed top-[70px] left-0 w-full z-50">
+            <div class="bg-secondary/5 backdrop-blur-xl border-b border-primary/10 py-6 px-6 space-y-4">
+                <a href="#home"
+                    class="mobile-nav-link block px-4 py-2 rounded-button text-primary hover:text-white relative overflow-hidden group">
+                    <span class="relative z-10 flex items-center"><i class="ri-home-line mr-3"></i>Bosh sahifa</span>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/40 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300">
+                    </div>
+                </a>
+                <a href="#about"
+                    class="mobile-nav-link block px-4 py-2 rounded-button text-primary hover:text-white relative overflow-hidden group">
+                    <span class="relative z-10 flex items-center"><i class="ri-information-line mr-3"></i>Biz
+                        haqimizda</span>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/40 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300">
+                    </div>
+                </a>
+                <a href="#services"
+                    class="mobile-nav-link block px-4 py-2 rounded-button text-primary hover:text-white relative overflow-hidden group">
+                    <span class="relative z-10 flex items-center"><i class="ri-service-line mr-3"></i>Xizmatlar</span>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/40 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300">
+                    </div>
+                </a>
+                <a href="#portfolio"
+                    class="mobile-nav-link block px-4 py-2 rounded-button text-primary hover:text-white relative overflow-hidden group">
+                    <span class="relative z-10 flex items-center"><i class="ri-gallery-line mr-3"></i>Portfolio</span>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/40 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300">
+                    </div>
+                </a>
+                <a href="#contact"
+                    class="mobile-nav-link block px-4 py-2 rounded-button text-primary hover:text-white relative overflow-hidden group">
+                    <span class="relative z-10 flex items-center"><i class="ri-chat-1-line mr-3"></i>Aloqa</span>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/40 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="home" class="min-h-screen flex items-center relative pt-20"
+            style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20digital%20technology%20background%20with%20dark%20navy%20blue%20color%20and%20silver%20lines%2C%20particles%20effect%2C%20high-tech%20abstract%20visualization%2C%20modern%20sci-fi%20atmosphere%2C%20digital%20network%20concept%2C%20glowing%20elements%2C%20tech%20innovation%20visualization&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-secondary bg-opacity-50"></div>
+            <div class="container mx-auto px-6 md:px-12 relative z-10">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-12 md:mb-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 section" id="hero-title">
+                            Innovatsion <span class="text-primary">Raqamli</span> Yechimlar
+                        </h1>
+                        <p class="text-lg md:text-xl mb-8 text-gray-200 section" id="hero-text"
+                            style="animation-delay: 0.3s;">
+                            Biz innovatsion texnologiyalar va zamonaviy dizayn orqali biznesingizni kelajakka olib
+                            chiqamiz. Nuvix bilan raqamli transformatsiyangizni boshlang.
+                        </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 section"
+                            id="hero-buttons" style="animation-delay: 0.6s;">
+                            <a href="#contact"
+                                class="neon-button bg-primary text-white px-8 py-3 rounded-button font-medium text-center whitespace-nowrap">Biz
+                                bilan bog'laning</a>
+                            <a href="#portfolio"
+                                class="neon-button bg-transparent border border-primary text-primary hover:text-white px-8 py-3 rounded-button font-medium text-center whitespace-nowrap">Ishlarimizni
+                                ko'ring</a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="relative w-full max-w-md section" id="hero-image" style="animation-delay: 0.9s;">
+                            <div class="w-full h-96 rounded-lg overflow-hidden"
+                                style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20holographic%20interface%2C%203D%20visualization%20of%20digital%20data%2C%20high-tech%20UI%20concept%2C%20glowing%20blue%20elements%20on%20dark%20background%2C%20technology%20innovation%20concept%2C%20floating%20digital%20elements%2C%20sci-fi%20interface%20design&width=600&height=800&seq=2&orientation=portrait'); background-size: cover; background-position: center;">
+                            </div>
+                            <div
+                                class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary rounded-full opacity-20 blur-lg">
+                            </div>
+                            <div class="absolute -top-4 -left-4 w-16 h-16 bg-white rounded-full opacity-10 blur-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="py-20 md:py-32 relative section">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Biz <span class="text-primary">Haqimizda</span></h2>
+                    <div class="w-24 h-1 bg-primary mx-auto"></div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-12 md:mb-0">
+                        <div class="relative">
+                            <div class="w-full h-96 rounded-lg overflow-hidden"
+                                style="background-image: url('https://readdy.ai/api/search-image?query=innovative%20tech%20team%20working%20in%20modern%20futuristic%20office%20with%20blue%20lighting%2C%20diverse%20professionals%20collaborating%20on%20digital%20projects%2C%20creative%20technology%20workspace%2C%20sleek%20design%20environment%2C%20high-tech%20equipment%2C%20professional%20atmosphere%2C%20teamwork%20in%20action&width=800&height=600&seq=3&orientation=landscape'); background-size: cover; background-position: center;">
+                            </div>
+                            <div class="absolute -bottom-4 -right-4 w-32 h-32 border-2 border-primary rounded-lg"></div>
+                            <div class="absolute -top-4 -left-4 w-32 h-32 border-2 border-primary rounded-lg"></div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6">Nuvix – Zamonaviy Raqamli Yondashuv</h3>
+                        <p class="text-gray-300 mb-6">
+                            Nuvix — bu mening 2024-yilda boshlangan shaxsiy portfoliom bo‘lib, u orqali men raqamli
+                            yechimlar, veb-saytlar, mobil ilovalar va dizayn yo‘nalishida yaratgan ishlarimni namoyish
+                            etaman. Bu platforma orqali o‘z tajribam, ko‘nikmalarim va kreativ yondashuvimni siz bilan
+                            bo‘lishaman.
+                        </p>
+                        <p class="text-gray-300 mb-8">
+                            Biz har bir loyihaga individual yondashuvni qo'llaymiz va mijozlarimiz biznesining o'ziga
+                            xos ehtiyojlarini tushunishga harakat qilamiz. Bizning maqsadimiz – mijozlarimizga nafaqat
+                            chiroyli, balki samarali va natijali raqamli mahsulotlarni yaratib berishdir.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4">
+                                    <i class="ri-award-line ri-xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2">Tajriba</h4>
+                                    <p class="text-gray-400">1+ yillik professional tajriba</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4">
+                                    <i class="ri-customer-service-line ri-xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2">Mijozlar</h4>
+                                    <p class="text-gray-400">8+ mamnun mijozlar</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4">
+                                    <i class="ri-global-line ri-xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2">Loyihalar</h4>
+                                    <p class="text-gray-400">15+ loyihalar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="services" class="py-20 md:py-32 bg-secondary bg-opacity-5 relative section">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4"><span class="text-primary">Xizmatlar</span>imiz</h2>
+                    <div class="w-24 h-1 bg-primary mx-auto"></div>
+                    <p class="text-gray-300 mt-6 max-w-2xl mx-auto">
+                        Bizning professional xizmatlarimiz orqali biznesingizni yangi bosqichga olib chiqing. Biz taklif
+                        etadigan xizmatlar:
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div
+                        class="service-card bg-secondary bg-opacity-10 rounded-lg p-8 border border-primary border-opacity-20 hover:border-opacity-50 transition-all duration-300">
+                        <div
+                            class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-6">
+                            <i class="ri-code-line ri-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Veb-sayt Ishlab Chiqish</h3>
+                        <p class="text-gray-300 mb-6">
+                            Zamonaviy va responsive veb-saytlar yaratish, landing page'lar, korporativ saytlar va
+                            internet-do'konlar ishlab chiqish.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                <span class="text-gray-400">Responsive dizayn</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                <span class="text-gray-400">SEO optimizatsiya</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                <span class="text-gray-400">CMS integratsiya</span>
+                            </li>
+                        </ul>
+                        <a href="#contact"
+                            class="neon-button inline-block bg-transparent border border-primary text-primary hover:text-white px-6 py-2 rounded-button font-medium whitespace-nowrap">Batafsil</a>
+                    </div>
+                    
+                    <div class="service-card bg-secondary bg-opacity-10 rounded-lg p-8 border border-primary border-opacity-20 hover:border-opacity-50 transition-all duration-300"
+                        style="animation-delay: 0.4s">
+                        <div
+                            class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-6">
+                            <i class="ri-palette-line ri-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">UI/UX Dizayn</h3>
+                        <p class="text-gray-300 mb-6">
+                            Foydalanuvchilar uchun qulay va estetik jihatdan go'zal interfeys dizaynlarini yaratish.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                <span class="text-gray-400">Prototiplash</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                <span class="text-gray-400">Foydalanuvchi tajribasi tadqiqoti</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                <span class="text-gray-400">Brending</span>
+                            </li>
+                        </ul>
+                        <a href="#contact"
+                            class="neon-button inline-block bg-transparent border border-primary text-primary hover:text-white px-6 py-2 rounded-button font-medium whitespace-nowrap">Batafsil</a>
+                    </div>
+
+                    <div class="service-card bg-secondary bg-opacity-10 rounded-lg p-8 border border-primary border-opacity-20 hover:border-opacity-50 transition-all duration-300"
+                        style="animation-delay: 0.8s">
+                        <div
+                            class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-6">
+                            <i class="ri-database-2-line ri-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">CRM Tizimlar</h3>
+                        <p class="text-gray-300 mb-6">
+                            Biznes jarayonlarini avtomatlashtirish va mijozlar bilan munosabatlarni boshqarish uchun CRM
+                            tizimlari.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                <span class="text-gray-400">Mijozlar bazasi</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                <span class="text-gray-400">Analitika va hisobotlar</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                <span class="text-gray-400">Integratsiya imkoniyatlari</span>
+                            </li>
+                        </ul>
+                        <a href="#contact"
+                            class="neon-button inline-block bg-transparent border border-primary text-primary hover:text-white px-6 py-2 rounded-button font-medium whitespace-nowrap">Batafsil</a>
+                    </div>
+                    <div class="service-card bg-secondary bg-opacity-10 rounded-lg p-8 border border-primary border-opacity-20 hover:border-opacity-50 transition-all duration-300"
+                        style="animation-delay: 1s">
+                        <div
+                            class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-6">
+                            <i class="ri-server-line ri-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Hosting va Texnik Xizmat</h3>
+                        <p class="text-gray-300 mb-6">
+                            Veb-saytlar va ilovalar uchun ishonchli hosting xizmatlari va doimiy texnik
+                            qo'llab-quvvatlash.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                <span class="text-gray-400">Ishonchli serverlar</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                <span class="text-gray-400">Doimiy monitoring</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                <span class="text-gray-400">Zaxira nusxalash</span>
+                            </li>
+                        </ul>
+                        <a href="#contact"
+                            class="neon-button inline-block bg-transparent border border-primary text-primary hover:text-white px-6 py-2 rounded-button font-medium whitespace-nowrap">Batafsil</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio" class="py-20 md:py-32 relative section">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Bizning <span class="text-primary">Portfolio</span>
+                    </h2>
+                    <div class="w-24 h-1 bg-primary mx-auto"></div>
+                    <p class="text-gray-300 mt-6 max-w-2xl mx-auto">
+                        Muvaffaqiyatli amalga oshirilgan loyihalarimiz bilan tanishing. Har bir loyiha mijozlarimizning
+                        ehtiyojlarini qondirish uchun maxsus ishlab chiqilgan.
+                    </p>
+                </div>
+                <div class="w-full mb-12 overflow-x-auto">
+                    <div
+                        class="inline-flex bg-secondary bg-opacity-10 rounded-full p-1 gap-2 min-w-max mx-auto sm:justify-center">
+                        <button
+                            class="portfolio-filter-btn active px-6 py-2 rounded-full text-white bg-primary whitespace-nowrap !rounded-button"
+                            data-filter="all">Barchasi</button>
+                        <button
+                            class="portfolio-filter-btn px-6 py-2 rounded-full text-primary whitespace-nowrap !rounded-button"
+                            data-filter="web">Veb-saytlar</button>
+                       
+                        <button
+                            class="portfolio-filter-btn px-6 py-2 rounded-full text-primary whitespace-nowrap !rounded-button"
+                            data-filter="design">UI/UX Dizayn</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="portfolio-item" data-category="web">
+                        <div class="relative group overflow-hidden rounded-lg">
+                            <div class="h-64 w-full"
+                                style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20e-commerce%20website%20design%20with%20dark%20blue%20and%20silver%20color%20scheme%2C%20modern%20UI%20layout%2C%20product%20showcase%20on%20digital%20device%2C%20clean%20and%20professional%20web%20design%20for%20luxury%20products%2C%20high-tech%20interface%20elements&width=600&height=400&seq=4&orientation=landscape'); background-size: cover; background-position: center;">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-secondary bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                <div class="text-center p-6">
+                                    <h3 class="text-xl font-bold mb-2">LuxTech E-commerce</h3>
+                                    <p class="text-gray-300 mb-4">Zamonaviy elektron tijorat platformasi</p>
+                                    <button onclick="openModal('luxtech')"
+                                        class="neon-button inline-block bg-primary text-white px-6 py-2 rounded-button font-medium whitespace-nowrap">Batafsil</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-category="mobile">
+                        <div class="relative group overflow-hidden rounded-lg">
+                            <div class="h-64 w-full"
+                                style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20mobile%20app%20interface%20design%20for%20finance%20application%2C%20dark%20blue%20theme%20with%20silver%20accents%2C%20cryptocurrency%20dashboard%20on%20smartphone%2C%20modern%20UI%20with%20charts%20and%20data%20visualization%2C%20clean%20professional%20mobile%20design&width=600&height=400&seq=5&orientation=landscape'); background-size: cover; background-position: center;">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-secondary bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                <div class="text-center p-6">
+                                    <h3 class="text-xl font-bold mb-2">FinTech Mobile App</h3>
+                                    <p class="text-gray-300 mb-4">Moliyaviy operatsiyalar uchun mobil ilova</p>
+                                    <button onclick="openModal('fintech')"
+                                        class="neon-button inline-block bg-primary text-white px-6 py-2 rounded-button font-medium whitespace-nowrap">Batafsil</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-category="design">
+                        <div class="relative group overflow-hidden rounded-lg">
+                            <div class="h-64 w-full"
+                                style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20dashboard%20UI%20design%20with%20data%20visualization%2C%20dark%20blue%20interface%20with%20silver%20and%20light%20blue%20elements%2C%20analytics%20platform%20design%2C%20modern%20admin%20panel%20with%20charts%20and%20metrics%2C%20professional%20business%20intelligence%20interface&width=600&height=400&seq=6&orientation=landscape'); background-size: cover; background-position: center;">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-secondary bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                <div class="text-center p-6">
+                                    <h3 class="text-xl font-bold mb-2">Analytics Dashboard</h3>
+                                    <p class="text-gray-300 mb-4">Biznes analitikasi uchun interfeys dizayni</p>
+                                    <button onclick="openModal('analytics')"
+                                        class="neon-button inline-block bg-primary text-white px-6 py-2 rounded-button font-medium whitespace-nowrap">Batafsil</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-category="web">
+                        <div class="relative group overflow-hidden rounded-lg">
+                            <div class="h-64 w-full"
+                                style="background-image: url('./img/fon.jpg'); background-size: cover; background-position: center;">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-secondary bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                <div class="text-center p-6">
+                                    <h3 class="text-xl font-bold mb-2">Shaxsiy </h3>
+                                    <p class="text-gray-300 mb-4">IT kompaniyasi uchun korporativ veb-sayt</p>
+                                    <button onclick="openModal('techcorp')"
+                                        class="neon-button inline-block bg-primary text-white px-6 py-2 rounded-button font-medium whitespace-nowrap">Batafsil</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-category="mobile">
+                        <div class="relative group overflow-hidden rounded-lg">
+                            <div class="h-64 w-full"
+                                style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20fitness%20mobile%20app%20interface%2C%20dark%20blue%20UI%20with%20silver%20accents%2C%20health%20tracking%20application%20on%20smartphone%2C%20workout%20planner%20with%20modern%20design%2C%20clean%20and%20professional%20mobile%20app%20for%20health%20monitoring&width=600&height=400&seq=8&orientation=landscape'); background-size: cover; background-position: center;">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-secondary bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                <div class="text-center p-6">
+                                    <h3 class="text-xl font-bold mb-2">FitTrack App</h3>
+                                    <p class="text-gray-300 mb-4">Fitness va salomatlik kuzatish ilovasi</p>
+                                    <button onclick="openModal('fittrack')"
+                                        class="neon-button inline-block bg-primary text-white px-6 py-2 rounded-button font-medium whitespace-nowrap">Batafsil</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-category="design">
+                        <div class="relative group overflow-hidden rounded-lg">
+                            <div class="h-64 w-full"
+                                style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20social%20media%20platform%20UI%20design%2C%20dark%20blue%20interface%20with%20silver%20elements%2C%20modern%20social%20network%20app%20design%2C%20messaging%20and%20content%20sharing%20interface%2C%20clean%20and%20professional%20design%20for%20digital%20communication&width=600&height=400&seq=9&orientation=landscape'); background-size: cover; background-position: center;">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-secondary bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                <div class="text-center p-6">
+                                    <h3 class="text-xl font-bold mb-2">ConnectHub UI</h3>
+                                    <p class="text-gray-300 mb-4">Ijtimoiy tarmoq uchun interfeys dizayni</p>
+                                    <button onclick="openModal('connecthub')"
+                                        class="neon-button inline-block bg-primary text-white px-6 py-2 rounded-button font-medium whitespace-nowrap">Batafsil</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="#contact"
+                        class="neon-button inline-block bg-primary text-white px-8 py-3 rounded-button font-medium whitespace-nowrap">Loyihangizni
+                        muhokama qilish</a>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Modals -->
+        <div id="portfolioModal"
+            class="fixed inset-0 bg-black bg-opacity-50  z-50 hidden flex items-center justify-center">
+            <div class="bg-secondary relative max-w-4xl w-full mx-4 rounded-lg overflow-hidden">
+                <div class="absolute top-4 right-4">
+                    <button onclick="closeModal()"
+                        class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/20 hover:bg-primary/40 transition-all duration-300">
+                        <i class="ri-close-line ri-lg text-white"></i>
+                    </button>
+                </div>
+                <div class="modal-content p-8 ">
+                    <!-- Content will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+        <section id="contact" class="py-20 md:py-32 bg-secondary bg-opacity-5 relative section">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Biz bilan <span
+                            class="text-primary">Bog'laning</span></h2>
+                    <div class="w-24 h-1 bg-primary mx-auto"></div>
+                    <p class="text-gray-300 mt-6 max-w-2xl mx-auto typing-animation">
+                        Loyihangiz haqida gaplashishga tayyormiz. Bizga xabar yuboring va tez orada bog'lanamiz
+                    </p>
+                </div>
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <div class="lg:w-1/2">
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-300 mb-2">Ismingiz</label>
+                                <input type="text" id="name"
+                                    class="w-full bg-secondary bg-opacity-10 border border-primary border-opacity-30 focus:border-opacity-100 rounded p-3 text-white outline-none transition-all duration-300"
+                                    placeholder="Ismingizni kiriting">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-300 mb-2">Email</label>
+                                <input type="email" id="email"
+                                    class="w-full bg-secondary bg-opacity-10 border border-primary border-opacity-30 focus:border-opacity-100 rounded p-3 text-white outline-none transition-all duration-300"
+                                    placeholder="Email manzilingizni kiriting">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-300 mb-2">Mavzu</label>
+                                <input type="text" id="subject"
+                                    class="w-full bg-secondary bg-opacity-10 border border-primary border-opacity-30 focus:border-opacity-100 rounded p-3 text-white outline-none transition-all duration-300"
+                                    placeholder="Xabar mavzusini kiriting">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-300 mb-2">Xabar</label>
+                                <textarea id="message" rows="5"
+                                    class="w-full bg-secondary bg-opacity-10 border border-primary border-opacity-30 focus:border-opacity-100 rounded p-3 text-white outline-none transition-all duration-300"
+                                    placeholder="Xabaringizni kiriting"></textarea>
+                            </div>
+                            <div>
+                                <label class="custom-checkbox text-gray-300">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    Men <a href="#" class="text-primary hover:underline">maxfiylik siyosati</a>
+                                    shartlarini qabul qilaman
+                                </label>
+                            </div>
+                            <button type="submit"
+                                class="neon-button bg-primary text-white px-8 py-3 rounded-button font-medium w-full whitespace-nowrap">Xabar
+                                yuborish</button>
+                        </form>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <div
+                            class="bg-secondary bg-opacity-10 rounded-lg p-8 border border-primary border-opacity-20 h-full">
+                            <h3 class="text-2xl font-bold mb-6">Aloqa Ma'lumotlari</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-16 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4">
+                                        <i class="ri-map-pin-line ri-xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-2">Manzil</h4>
+                                        <p class="text-gray-400">Toshkent shahri, Mirzo Ulug'bek tumani, Mustaqillik
+                                            shoh ko'chasi, 54-uy</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4">
+                                        <i class="ri-phone-line ri-xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-2">Telefon</h4>
+                                        <p class="text-gray-400">+998 90 123 45 67</p>
+                                        <p class="text-gray-400">+998 71 234 56 78</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4">
+                                        <i class="ri-mail-line ri-xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-2">Email</h4>
+                                        <p class="text-gray-400">info@nuvix.uz</p>
+                                        <p class="text-gray-400">support@nuvix.uz</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4">
+                                        <i class="ri-time-line ri-xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-2">Ish vaqti</h4>
+                                        <p class="text-gray-400">Dushanba - Juma: 9:00 - 18:00</p>
+                                        <p class="text-gray-400">Shanba: 10:00 - 15:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <h4 class="font-bold mb-4">Ijtimoiy tarmoqlar</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#"
+                                        class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full hover:bg-primary hover:bg-opacity-40 transition-all duration-300">
+                                        <i class="ri-facebook-fill ri-lg text-primary"></i>
+                                    </a>
+                                    <a href="#"
+                                        class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full hover:bg-primary hover:bg-opacity-40 transition-all duration-300">
+                                        <i class="ri-instagram-fill ri-lg text-primary"></i>
+                                    </a>
+                                    <a href="#"
+                                        class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full hover:bg-primary hover:bg-opacity-40 transition-all duration-300">
+                                        <i class="ri-telegram-fill ri-lg text-primary"></i>
+                                    </a>
+                                    <a href="#"
+                                        class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full hover:bg-primary hover:bg-opacity-40 transition-all duration-300">
+                                        <i class="ri-linkedin-fill ri-lg text-primary"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="py-12 bg-secondary bg-opacity-10 border-t border-primary border-opacity-20">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="logo-animation relative mb-10">
+                        <a href="#" class="text-2xl lg:text-3xl font-['Open Sans'] font-bold text-white flex items-center">
+                            <span class="letter glowing-text" style="animation-delay: 0.1s;"><img class="w-12 lg:w-16 "
+                                    src="./img/logo.png" alt="nuvix logosi"></span>
+                            <span class="letter glowing-text" style="animation-delay: 0.2s;">u</span>
+                            <span class="letter glowing-text" style="animation-delay: 0.3s;">v</span>
+                            <span class="letter glowing-text" style="animation-delay: 0.4s;">i</span>
+                            <span class="letter glowing-text" style="animation-delay: 0.5s;">x</span>
+                        </a>
+                        
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Biz raqamli transformatsiya sohasida yetakchi kompaniya sifatida mijozlarimizga yuqori sifatli
+                        innovatsion yechimlarni taqdim etamiz.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full hover:bg-primary hover:bg-opacity-40 transition-all duration-300">
+                            <i class="ri-facebook-fill ri-lg text-primary"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full hover:bg-primary hover:bg-opacity-40 transition-all duration-300">
+                            <i class="ri-instagram-fill ri-lg text-primary"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full hover:bg-primary hover:bg-opacity-40 transition-all duration-300">
+                            <i class="ri-telegram-fill ri-lg text-primary"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full hover:bg-primary hover:bg-opacity-40 transition-all duration-300">
+                            <i class="ri-linkedin-fill ri-lg text-primary"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Xizmatlar</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-all duration-300">Veb-sayt
+                                Ishlab Chiqish</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-all duration-300">Mobil
+                                Ilovalar</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-all duration-300">UI/UX
+                                Dizayn</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-all duration-300">Raqamli
+                                Marketing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-all duration-300">CRM
+                                Tizimlar</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-all duration-300">Hosting va
+                                Texnik Xizmat</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Foydali Havolalar</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-all duration-300">Bosh
+                                sahifa</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-all duration-300">Biz
+                                haqimizda</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-primary transition-all duration-300">Xizmatlar</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-primary transition-all duration-300">Portfolio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-all duration-300">Blog</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-all duration-300">Aloqa</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Yangiliklarga obuna bo'ling</h3>
+                    <p class="text-gray-400 mb-6">
+                        Eng so'nggi yangiliklar va takliflar haqida xabardor bo'lish uchun obuna bo'ling.
+                    </p>
+                    <div class="flex">
+                        <input type="email"
+                            class="bg-secondary bg-opacity-10 border border-primary border-opacity-30 focus:border-opacity-100 rounded-l p-3 text-white outline-none transition-all duration-300 w-full"
+                            placeholder="Email manzilingiz">
+                        <button
+                            class="neon-button bg-primary text-white px-4 py-3 rounded-r font-medium whitespace-nowrap !rounded-button">Obuna</button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="border-t border-primary border-opacity-20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2025 Nuvix. Barcha huquqlar himoyalangan.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition-all duration-300">Maxfiylik
+                        siyosati</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-all duration-300">Foydalanish
+                        shartlari</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Organization",
+"name": "Nuvix",
+"url": "https://nuvix.uz",
+"logo": "https://nuvix.uz/logo.png",
+"description": "Professional raqamli agentlik - veb-sayt yaratish, mobil ilovalar ishlab chiqish va UI/UX dizayn xizmatlari",
+"address": {
+"@type": "PostalAddress",
+"streetAddress": "Mustaqillik shoh ko'chasi, 54-uy",
+"addressLocality": "Toshkent",
+"addressRegion": "Mirzo Ulug'bek",
+"postalCode": "100000",
+"addressCountry": "UZ"
+},
+"contactPoint": {
+"@type": "ContactPoint",
+"telephone": "+998-90-123-4567",
+"contactType": "customer service",
+"email": "info@nuvix.uz",
+"availableLanguage": ["Uzbek", "Russian", "English"]
+},
+"sameAs": [
+"https://facebook.com/nuvix",
+"https://instagram.com/nuvix",
+"https://linkedin.com/company/nuvix",
+"https://t.me/nuvix"
+]
+}
+</script>
+    <script>
+        const portfolioData = {
+            luxtech: {
+                title: "LuxTech E-commerce",
+                description: "Zamonaviy elektron tijorat platformasi",
+                client: "LuxTech Industries",
+                duration: "6 oy",
+                technologies: ["React.js", "Node.js", "MongoDB", "AWS"],
+                features: [
+                    "Mahsulotlarni qidirish va filtrlash",
+                    "Savat va to'lov tizimi",
+                    "Foydalanuvchi kabineti",
+                    "Admin panel",
+                    "Analitika va hisobotlar"
+                ],
+                results: [
+                    "Onlayn savdo 150% ga oshdi",
+                    "Foydalanuvchilar soni 200% ga ko'paydi",
+                    "Sayt tezligi 40% ga optimallashtirildi"
+                ],
+                image: "https://readdy.ai/api/search-image?query=luxury%20e-commerce%20website%20mockup%20on%20multiple%20devices%2C%20professional%20product%20photography%2C%20modern%20and%20clean%20design%2C%20high-end%20shopping%20experience%20interface&width=800&height=600&seq=10&orientation=landscape"
+            },
+            fintech: {
+                title: "FinTech Mobile App",
+                description: "Moliyaviy operatsiyalar uchun mobil ilova",
+                client: "FinTech Solutions",
+                duration: "8 oy",
+                technologies: ["Flutter", "Firebase", "Node.js", "PostgreSQL"],
+                features: [
+                    "Real vaqt tranzaksiyalari",
+                    "Xavfsiz autentifikatsiya",
+                    "Statistika va tahlillar",
+                    "Push-bildirishnomalar",
+                    "Ko'p valyutali operatsiyalar"
+                ],
+                results: [
+                    "500,000+ yuklab olishlar",
+                    "4.8/5 reyting",
+                    "Kunlik 50,000+ aktiv foydalanuvchi"
+                ],
+                image: "https://readdy.ai/api/search-image?query=fintech%20mobile%20app%20interface%20on%20smartphone%2C%20financial%20dashboard%20with%20charts%20and%20statistics%2C%20modern%20banking%20app%20design&width=800&height=600&seq=11&orientation=landscape"
+            },
+            analytics: {
+                title: "Analytics Dashboard",
+                description: "Biznes analitikasi uchun interfeys dizayni",
+                client: "DataViz Corp",
+                duration: "4 oy",
+                technologies: ["Vue.js", "D3.js", "Python", "PostgreSQL"],
+                features: [
+                    "Real vaqt ma'lumotlar vizualizatsiyasi",
+                    "Moslashuvchan grafiklar",
+                    "Ma'lumotlarni eksport qilish",
+                    "Ko'p foydalanuvchili kirish",
+                    "Avtomatik hisobotlar"
+                ],
+                results: [
+                    "Qaror qabul qilish vaqti 60% ga qisqardi",
+                    "Hisobot tayyorlash 80% ga tezlashdi",
+                    "Foydalanuvchi samaradorligi 45% ga oshdi"
+                ],
+                image: "https://readdy.ai/api/search-image?query=business%20analytics%20dashboard%20with%20multiple%20data%20visualizations%2C%20modern%20dark%20theme%20interface%2C%20professional%20charts%20and%20metrics%20display&width=800&height=600&seq=12&orientation=landscape"
+            },
+            techcorp: {
+                title: "TechCorp Website",
+                description: "IT kompaniyasi uchun korporativ veb-sayt",
+                client: "TechCorp International",
+                duration: "3 oy",
+                technologies: ["Next.js", "Tailwind CSS", "Strapi CMS", "AWS"],
+                features: [
+                    "Zamonaviy dizayn",
+                    "Ko'p tilli qo'llab-quvvatlash",
+                    "Blog va yangiliklar bo'limi",
+                    "Karyera portali",
+                    "Loyihalar portfoliosi"
+                ],
+                results: [
+                    "Sayt trafigi 200% ga oshdi",
+                    "Lead generatsiya 180% ga ko'paydi",
+                    "Brend tanilishi 150% ga oshdi"
+                ],
+                image: "https://readdy.ai/api/search-image?query=corporate%20technology%20website%20design%2C%20modern%20IT%20company%20homepage%2C%20professional%20business%20website%20interface&width=800&height=600&seq=13&orientation=landscape"
+            },
+            fittrack: {
+                title: "FitTrack App",
+                description: "Fitness va salomatlik kuzatish ilovasi",
+                client: "HealthTech Solutions",
+                duration: "5 oy",
+                technologies: ["React Native", "Firebase", "Node.js", "MongoDB"],
+                features: [
+                    "Mashg'ulotlarni rejalashtirish",
+                    "Ovqatlanish kundaligi",
+                    "Progress kuzatish",
+                    "Ijtimoiy integratsiya",
+                    "AI-asosli tavsiyalar"
+                ],
+                results: [
+                    "1 million+ yuklab olishlar",
+                    "4.9/5 reyting",
+                    "85% foydalanuvchi saqlanishi"
+                ],
+                image: "https://readdy.ai/api/search-image?query=fitness%20tracking%20app%20interface%2C%20health%20monitoring%20dashboard%2C%20workout%20planner%20on%20smartphone%20screen&width=800&height=600&seq=14&orientation=landscape"
+            },
+            connecthub: {
+                title: "ConnectHub UI",
+                description: "Ijtimoiy tarmoq uchun interfeys dizayni",
+                client: "SocialTech Ventures",
+                duration: "4 oy",
+                technologies: ["Figma", "Adobe XD", "Principle", "Framer"],
+                features: [
+                    "Zamonaviy interfeys dizayni",
+                    "Real vaqt xabarlashish",
+                    "Kontent almashish",
+                    "Qiziqishlar bo'yicha guruhlar",
+                    "Tadbirlar taqvimi"
+                ],
+                results: [
+                    "Foydalanuvchi tajribasi 75% ga yaxshilandi",
+                    "Ilovada o'tkazilgan vaqt 60% ga oshdi",
+                    "Foydalanuvchi faolligi 90% ga ko'paydi"
+                ],
+                image: "https://readdy.ai/api/search-image?query=social%20media%20platform%20interface%20design%2C%20modern%20messaging%20and%20content%20sharing%20UI%2C%20dark%20theme%20social%20network%20app&width=800&height=600&seq=15&orientation=landscape"
+            }
+        };
+        function openModal(projectId) {
+            const modal = document.getElementById('portfolioModal');
+            const modalContent = modal.querySelector('.modal-content');
+            const project = portfolioData[projectId];
+            const content = `
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="rounded-lg overflow-hidden">
+        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover">
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-white">${project.title}</h3>
+        <p class="text-gray-300 mb-6">${project.description}</p>
+        
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-bold mb-2 text-primary">Mijoz</h4>
+            <p class="text-gray-300">${project.client}</p>
+          </div>
+          
+          <div>
+            <h4 class="font-bold mb-2 text-primary">Davomiyligi</h4>
+            <p class="text-gray-300">${project.duration}</p>
+          </div>
+          
+          <div>
+            <h4 class="font-bold mb-2 text-primary">Texnologiyalar</h4>
+            <div class="flex flex-wrap gap-2">
+              ${project.technologies.map(tech => `
+                <span class="px-3 py-1 bg-primary/20 rounded-full text-sm text-primary">${tech}</span>
+              `).join('')}
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="font-bold mb-2 text-primary">Asosiy funksiyalar</h4>
+            <ul class="space-y-2">
+              ${project.features.map(feature => `
+                <li class="flex items-center text-gray-300">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  ${feature}
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold mb-2 text-primary">Natijalar</h4>
+            <ul class="space-y-2">
+              ${project.results.map(result => `
+                <li class="flex items-center text-gray-300">
+                  <i class="ri-arrow-right-up-line text-primary mr-2"></i>
+                  ${result}
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+            modalContent.innerHTML = content;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            const modal = document.getElementById('portfolioModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            // Create particles
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                const size = Math.random() * 5 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                particlesContainer.appendChild(particle);
+            }
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        // Close mobile menu if open
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+            // Scroll animations
+            const sections = document.querySelectorAll('.section');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (sectionTop < windowHeight * 0.75) {
+                        section.classList.add('visible');
+                    }
+                });
+                portfolioItems.forEach(item => {
+                    const itemTop = item.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (itemTop < windowHeight * 0.9) {
+                        item.classList.add('visible');
+                    }
+                });
+            }
+            // Initial check
+            checkVisibility();
+            // Check on scroll
+            window.addEventListener('scroll', checkVisibility);
+            // Header scroll effect
+            const header = document.getElementById('header');
+            function updateHeader() {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-2');
+                    header.classList.remove('py-4');
+                } else {
+                    header.classList.add('py-4');
+                    header.classList.remove('py-2');
+                }
+            }
+            window.addEventListener('scroll', updateHeader);
+            // Portfolio filtering
+            const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.classList.remove('bg-primary');
+                        btn.classList.add('text-primary');
+                        btn.classList.remove('text-white');
+                    });
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    this.classList.add('bg-primary');
+                    this.classList.add('text-white');
+                    this.classList.remove('text-primary');
+                    const filter = this.getAttribute('data-filter');
+                    // Filter portfolio items
+                    portfolioItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        if (filter === 'all' || filter === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
