@@ -149,17 +149,17 @@
 
                     <div class="md:w-1/2 mb-12 md:mb-0 animate-fadeInUp">
                         <h1
-                            class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-6 relative leading-tight text-white">
+                            class="text-4xl sm:text-3xl md:text-4xl font-extrabold mb-6 relative leading-tight text-white">
                             <span id="typed-text" class="inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400 
                                          border-r-4 border-white pr-2 animate-cursor whitespace-nowrap">
                             </span>
                         </h1>
 
 
-                        <p class="text-lg md:text-lg mb-8 text-gray-200">
+                        <p class="text-[16px] md:text-lg mb-8 text-gray-200">
                             Biz innovatsion texnologiyalar va zamonaviy dizayn orqali biznesingizni kelajakka olib
                             chiqamiz.
-                            Nuvix bilan raqamli transformatsiyangizni boshlang.
+                           <span class="text-2xl font-bold">Nuvix</span>  bilan raqamli transformatsiyangizni boshlang.
                         </p>
                         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                             <a href="#contact"
@@ -175,7 +175,7 @@
                     <div class="md:w-1/2 flex justify-center opacity-0 transform scale-95 transition-all duration-1000 delay-[3000ms]"
                         id="image-container">
                         <div class="relative w-full max-w-md">
-                            <div class="w-full h-96 rounded-lg overflow-hidden bg-cover bg-center shadow-xl"
+                            <div class="w-full h-96 rounded-lg hidden sm:block overflow-hidden bg-cover bg-center shadow-xl"
                                 style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20holographic%20interface%2C%203D%20visualization%20of%20digital%20data%2C%20high-tech%20UI%20concept%2C%20glowing%20blue%20elements%20on%20dark%20background%2C%20technology%20innovation%20concept%2C%20floating%20digital%20elements%2C%20sci-fi%20interface%20design&width=600&height=800&seq=2&orientation=portrait');">
                             </div>
                             <div
@@ -737,23 +737,34 @@
     </footer>
     <script>
 
-        const text = "Innovatsion Raqamli Yechimlar";
-        const target = document.getElementById("typed-text");
-        const imageContainer = document.getElementById("image-container");
-        let index = 0;
+const textDesktop = "Innovatsion Raqamli\u00A0\u00A0Yechimlar"; // 2 ta no-break space
+const textMobile = "Innovatsion Raqamli \n Yechimlar";
+const target = document.getElementById("typed-text");
+const imageContainer = document.getElementById("image-container");
+let index = 0;
 
-        function typeEffect() {
-            if (index < text.length) {
-                target.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeEffect, 50);
-            } else {
-                setTimeout(() => {
-                    imageContainer.classList.remove("opacity-0", "scale-95");
-                    imageContainer.classList.add("opacity-100", "scale-100");
-                }, 100); 
-            }
+const isMobile = window.innerWidth < 640;
+const text = isMobile ? textMobile : textDesktop;
+
+function typeEffect() {
+    if (index < text.length) {
+        const char = text.charAt(index);
+        if (char === "\n") {
+            target.innerHTML += "<br>";
+        } else if (char === "\u00A0") {
+            target.innerHTML += "&nbsp;";
+        } else {
+            target.innerHTML += char;
         }
+        index++;
+        setTimeout(typeEffect, 50);
+    } else {
+        setTimeout(() => {
+            imageContainer.classList.remove("opacity-0", "scale-95");
+            imageContainer.classList.add("opacity-100", "scale-100");
+        }, 80);
+    }
+}
 
         window.addEventListener("load", typeEffect);
         window.addEventListener("load", typeEffect);
