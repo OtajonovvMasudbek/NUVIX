@@ -26,442 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-    <style>
-        :where([class^="ri-"])::before {
-            content: "\f3c2";
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .lazy-load {
-            opacity: 0;
-            transition: opacity 0.3s ease-in;
-        }
-
-        .lazy-load.loaded {
-            opacity: 1;
-        }
-
-        @media print {
-            .no-print {
-                display: none;
-            }
-        }
-
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: #0d1b2a;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            background-color: rgba(142, 155, 168, 0.3);
-            border-radius: 50%;
-            animation: float 15s infinite ease-in-out;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0) translateX(0);
-            }
-
-            25% {
-                transform: translateY(-30px) translateX(15px);
-            }
-
-            50% {
-                transform: translateY(-15px) translateX(-15px);
-            }
-
-            75% {
-                transform: translateY(30px) translateX(10px);
-            }
-        }
-
-        .logo-animation .letter {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(20px) scale(0.8);
-            animation: logoReveal 0.5s forwards;
-        }
-
-        .glowing-text {
-            text-shadow: 0 0 10px rgba(142, 155, 168, 0.5);
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes logoReveal {
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px rgba(142, 155, 168, 0.5);
-            }
-
-            to {
-                text-shadow: 0 0 20px rgba(142, 155, 168, 0.8),
-                    0 0 30px rgba(142, 155, 168, 0.6),
-                    0 0 40px rgba(142, 155, 168, 0.4);
-            }
-        }
-
-        .nav-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(to right, transparent, rgba(142, 155, 168, 0.8), transparent);
-            transform: translateX(-50%);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::before {
-            width: 80%;
-        }
-
-        .mobile-nav-link {
-            transform: translateX(-10px);
-            opacity: 0;
-            animation: slideIn 0.3s forwards;
-        }
-
-        @keyframes slideIn {
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .neon-button {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .neon-button:hover {
-            box-shadow: 0 0 15px rgba(142, 155, 168, 0.8);
-        }
-
-        .neon-button:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(142, 155, 168, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .neon-button:hover:before {
-            left: 100%;
-        }
-
-        .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: float-card 6s infinite ease-in-out;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(142, 155, 168, 0.3);
-        }
-
-        @keyframes float-card {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .portfolio-item {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.5s ease;
-        }
-
-        .portfolio-item.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .typing-animation {
-            overflow: hidden;
-            border-right: 2px solid #8e9ba8;
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0
-            }
-
-            to {
-                width: 100%
-            }
-        }
-
-        @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent
-            }
-
-            50% {
-                border-color: #8e9ba8
-            }
-        }
-
-        .custom-switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 30px;
-        }
-
-        .custom-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .switch-slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(13, 27, 42, 0.5);
-            transition: .4s;
-            border-radius: 30px;
-            border: 1px solid rgba(142, 155, 168, 0.3);
-        }
-
-        .switch-slider:before {
-            position: absolute;
-            content: "";
-            height: 22px;
-            width: 22px;
-            left: 4px;
-            bottom: 3px;
-            background-color: #8e9ba8;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked+.switch-slider {
-            background-color: rgba(142, 155, 168, 0.2);
-        }
-
-        input:checked+.switch-slider:before {
-            transform: translateX(30px);
-            background-color: #fff;
-        }
-
-        .custom-checkbox {
-            position: relative;
-            padding-left: 35px;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .custom-checkbox input {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-        }
-
-        .checkmark {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 24px;
-            width: 24px;
-            background-color: rgba(13, 27, 42, 0.5);
-            border: 1px solid rgba(142, 155, 168, 0.5);
-            border-radius: 4px;
-        }
-
-        .custom-checkbox:hover input~.checkmark {
-            background-color: rgba(142, 155, 168, 0.1);
-        }
-
-        .custom-checkbox input:checked~.checkmark {
-            background-color: rgba(142, 155, 168, 0.8);
-        }
-
-        .checkmark:after {
-            content: "";
-            position: absolute;
-            display: none;
-        }
-
-        .custom-checkbox input:checked~.checkmark:after {
-            display: block;
-        }
-
-        .custom-checkbox .checkmark:after {
-            left: 9px;
-            top: 5px;
-            width: 6px;
-            height: 10px;
-            border: solid white;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
-        }
-
-        .section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .glassmorphism {
-            background: rgba(13, 27, 42, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(142, 155, 168, 0.2);
-        }
-
-        input[type="range"] {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 6px;
-            background: rgba(142, 155, 168, 0.2);
-            border-radius: 5px;
-            outline: none;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background: #8e9ba8;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        input[type="range"]::-webkit-slider-thumb:hover {
-            box-shadow: 0 0 10px rgba(142, 155, 168, 0.8);
-            background: #fff;
-        }
-
-        input[type="range"]::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            background: #8e9ba8;
-            border-radius: 50%;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-        }
-
-        input[type="range"]::-moz-range-thumb:hover {
-            box-shadow: 0 0 10px rgba(142, 155, 168, 0.8);
-            background: #fff;
-        }
-
-        .custom-radio {
-            position: relative;
-            padding-left: 35px;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .custom-radio input {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-        }
-
-        .radio-mark {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 24px;
-            width: 24px;
-            background-color: rgba(13, 27, 42, 0.5);
-            border: 1px solid rgba(142, 155, 168, 0.5);
-            border-radius: 50%;
-        }
-
-        .custom-radio:hover input~.radio-mark {
-            background-color: rgba(142, 155, 168, 0.1);
-        }
-
-        .custom-radio input:checked~.radio-mark {
-            background-color: rgba(13, 27, 42, 0.8);
-            border: 1px solid rgba(142, 155, 168, 0.8);
-        }
-
-        .radio-mark:after {
-            content: "";
-            position: absolute;
-            display: none;
-        }
-
-        .custom-radio input:checked~.radio-mark:after {
-            display: block;
-        }
-
-        .custom-radio .radio-mark:after {
-            top: 7px;
-            left: 7px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #8e9ba8;
-        }
-    </style>
+    <link rel="stylesheet" href="./main.css">
 </head>
 
 <body>
@@ -580,13 +145,18 @@
             <div class="absolute inset-0 bg-secondary bg-opacity-60 z-0"></div>
 
             <div class="container mx-auto px-6 md:px-12 relative z-10">
-                <div class="flex flex-col md:flex-row items-center text-white">
+                <div class="flex flex-col  md:flex-row items-center text-white">
 
                     <div class="md:w-1/2 mb-12 md:mb-0 animate-fadeInUp">
-                        <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                            Innovatsion <span class="text-primary">Raqamli</span> Yechimlar
+                        <h1
+                            class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-6 relative leading-tight text-white">
+                            <span id="typed-text" class="inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400 
+                                         border-r-4 border-white pr-2 animate-cursor whitespace-nowrap">
+                            </span>
                         </h1>
-                        <p class="text-lg md:text-xl mb-8 text-gray-200">
+
+
+                        <p class="text-lg md:text-lg mb-8 text-gray-200">
                             Biz innovatsion texnologiyalar va zamonaviy dizayn orqali biznesingizni kelajakka olib
                             chiqamiz.
                             Nuvix bilan raqamli transformatsiyangizni boshlang.
@@ -602,9 +172,10 @@
                             </a>
                         </div>
                     </div>
-                    <div class="md:w-1/2 flex justify-center animate-fadeInUp delay-300">
+                    <div class="md:w-1/2 flex justify-center opacity-0 transform scale-95 transition-all duration-1000 delay-[3000ms]"
+                        id="image-container">
                         <div class="relative w-full max-w-md">
-                            <div class="w-full h-96 rounded-lg overflow-hidden bg-cover bg-center"
+                            <div class="w-full h-96 rounded-lg overflow-hidden bg-cover bg-center shadow-xl"
                                 style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20holographic%20interface%2C%203D%20visualization%20of%20digital%20data%2C%20high-tech%20UI%20concept%2C%20glowing%20blue%20elements%20on%20dark%20background%2C%20technology%20innovation%20concept%2C%20floating%20digital%20elements%2C%20sci-fi%20interface%20design&width=600&height=800&seq=2&orientation=portrait');">
                             </div>
                             <div
@@ -614,6 +185,7 @@
                             </div>
                         </div>
                     </div>
+
 
                 </div>
             </div>
@@ -1163,38 +735,28 @@
             </div>
         </div>
     </footer>
-    <script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "Organization",
-"name": "Nuvix",
-"url": "https://nuvix.uz",
-"logo": "https://nuvix.uz/logo.png",
-"description": "Professional raqamli agentlik - veb-sayt yaratish, mobil ilovalar ishlab chiqish va UI/UX dizayn xizmatlari",
-"address": {
-"@type": "PostalAddress",
-"streetAddress": "Mustaqillik shoh ko'chasi, 54-uy",
-"addressLocality": "Toshkent",
-"addressRegion": "Mirzo Ulug'bek",
-"postalCode": "100000",
-"addressCountry": "UZ"
-},
-"contactPoint": {
-"@type": "ContactPoint",
-"telephone": "+998-90-123-4567",
-"contactType": "customer service",
-"email": "info@nuvix.uz",
-"availableLanguage": ["Uzbek", "Russian", "English"]
-},
-"sameAs": [
-"https://facebook.com/nuvix",
-"https://instagram.com/nuvix",
-"https://linkedin.com/company/nuvix",
-"https://t.me/nuvix"
-]
-}
-</script>
     <script>
+
+        const text = "Innovatsion Raqamli Yechimlar";
+        const target = document.getElementById("typed-text");
+        const imageContainer = document.getElementById("image-container");
+        let index = 0;
+
+        function typeEffect() {
+            if (index < text.length) {
+                target.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 50);
+            } else {
+                setTimeout(() => {
+                    imageContainer.classList.remove("opacity-0", "scale-95");
+                    imageContainer.classList.add("opacity-100", "scale-100");
+                }, 100); 
+            }
+        }
+
+        window.addEventListener("load", typeEffect);
+        window.addEventListener("load", typeEffect);
         const portfolioData = {
             luxtech: {
                 title: "Muxriddin Baxriddinov",
